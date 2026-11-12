@@ -66,8 +66,9 @@
       <a class="button primary" href="kev-latest-sample.json" download>Download the JSON sample</a>
       <a class="button" href="https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json">Open the live CISA source</a>
       <a class="button" href="https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo">View the GitHub repository</a>
+      <a class="button" href="https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals">Open the public API listing</a>
     </div>
-    <div class="status" role="status">API subscriptions are not open yet</div>
+    <div class="status" role="status">RapidAPI listing is public</div>
 
     <section class="grid" aria-label="Sample details">
       <article class="card">
@@ -88,10 +89,10 @@
   | jq '{catalogVersion, dateReleased, count, vulnerabilities: [.vulnerabilities[:3][] | {cveID, vendorProject, product, dateAdded, dueDate, knownRansomwareCampaignUse}]}'</code></pre>
       </article>
       <article class="card full">
-        <h2>What the planned API adds</h2>
-        <p>Developer Risk Signals is designed to normalize source-linked evidence for a small set of security lookups: filtering KEV catalog records, checking caller-supplied package versions against OSV, and exact OpenSSF malicious-package report matches. The public sample demonstrates the KEV response shape only.</p>
-        <p class="note"><strong>Current access:</strong> the API project and paid tiers are configured privately, but the RapidAPI listing is not public. This page does not provide API credentials or imply that subscriptions are available. A no-match is not a security verdict, and the service does not assess reachability or exploitability.</p>
-        <p style="margin-top:16px">Follow verified availability updates on <a href="https://t.me/vyonetix_api_signals">Telegram</a>. Source code and the JSON fixture are available on <a href="https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo">GitHub</a>.</p>
+        <h2>What the API provides</h2>
+        <p>Developer Risk Signals provides three source-linked lookups: filter KEV catalog records, check caller-supplied package versions against OSV, and match exact OpenSSF malicious-package reports. The public sample demonstrates the CISA KEV source shape only; it is not a live API result.</p>
+        <p class="note"><strong>Current access:</strong> the RapidAPI listing is public. Review the plan details and card requirement on that page before subscribing; the free-plus-paid plan setup may require a payment card even for its free tier. This sample page does not provide API credentials. A no-match is not a security verdict, and the service does not assess reachability or exploitability.</p>
+        <p style="margin-top:16px">Open the <a href="https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals">public API listing</a>. Follow product updates on <a href="https://t.me/vyonetix_api_signals">Telegram</a>. Source code and the JSON fixture are available on <a href="https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo">GitHub</a>.</p>
       </article>
     </section>
   </main>

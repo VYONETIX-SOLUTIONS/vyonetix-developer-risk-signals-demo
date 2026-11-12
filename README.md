@@ -19,7 +19,7 @@ The Vyonetix-style sample is in [`kev-latest-sample.json`](kev-latest-sample.jso
 
 The API provides one consistent JSON envelope and supports filters such as `since`, `cve_id`, `vendor`, and `product`, plus bounded pagination. It retains source provenance and timestamps. It does not decide whether a CVE affects a particular system, assess exploitability, or issue a security verdict.
 
-The RapidAPI project is currently private while its owner completes the platform's rights-to-publish attestation. The three routes are deployed and passed gateway checks, but new external consumers cannot subscribe yet. No key is included here. Once public access is enabled, the API will be discoverable through the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals).
+The [RapidAPI listing is public](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals). The three REST routes are deployed and previously passed authenticated gateway checks. No key is included here. The listing currently combines free and paid plans; RapidAPI's Freemium model may require a payment card even for its free tier. A separate consumer's signup, quota enforcement, and checkout have not been verified. This repository contains only a public CISA snapshot, not a live Vyonetix API response.
 
 ## Sources and rights
 

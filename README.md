@@ -1,36 +1,71 @@
-# Free CISA KEV Data Sample — Vyonetix Developer Risk Signals
+# VYONETIX SOLUTIONS — Developer Risk Signals
 
-**Interactive sample page:** [Developer Risk Signals — Free KEV JSON Sample](https://sudheer-vyo.github.io/vyonetix-developer-risk-signals-demo/)
+**Normalize three public software-risk sources into one developer-friendly API contract.** Filter CISA's Known Exploited Vulnerabilities (KEV) catalog, check caller-supplied package versions against OSV, and match exact OpenSSF malicious-package reports.
 
-This repository contains a small, time-stamped JSON sample derived from the public CISA Known Exploited Vulnerabilities (KEV) catalog. It shows the reduced response shape used by Vyonetix Developer Risk Signals: CVE, vendor, product, catalog dates, source attribution, and freshness metadata.
+[Open the RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals) · [View the free JSON sample](https://sudheer-vyo.github.io/vyonetix-developer-risk-signals-demo/) · [Try the GitHub Action](https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/tree/main/integrations/github-action)
 
-## Try the public source for free
+> This is a controlled pilot without an availability SLA. The API returns source-linked evidence, not an exploitability or safety verdict. A no-match does not mean a dependency is safe.
 
-The Vyonetix fixture is a snapshot. To inspect the live upstream feed directly, use:
+## What it does
+
+| Operation | Use |
+|---|---|
+| `GET /v1/security/kev` | Filter reduced CISA KEV catalog facts by date, CVE, vendor, or product with bounded pagination. |
+| `POST /v1/dependencies/check` | Check up to the documented batch limit of caller-supplied package coordinates and versions against OSV. |
+| `POST /v1/packages/malicious-check` | Find exact package/version matches in OpenSSF MAL reports. |
+
+One normalized response envelope keeps status, timestamps, source provenance, license notes, and result data together. The service accepts package coordinates, not uploaded SBOM files.
+
+## Start with one request
+
+Subscribe or choose a plan on the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals), copy your consumer key, and set it in your shell as `RAPIDAPI_KEY`. Keep the key in a secret manager or environment variable; never commit it.
+
+The listing currently shows a 100-request monthly Basic plan, a US$19/month Pro plan, and a US$39/month Ultra plan. Plan limits and card requirements can change; review the listing before subscribing. RapidAPI's current Freemium arrangement may require a payment card even for Basic.
 
 ```sh
-curl -fsSL https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json \
-  | jq '{catalogVersion, dateReleased, count, vulnerabilities: [.vulnerabilities[:3][] | {cveID, vendorProject, product, dateAdded, dueDate, knownRansomwareCampaignUse}]}'
+curl --get 'https://vyonetix-developer-risk-signals.p.rapidapi.com/v1/security/kev' \
+  --data-urlencode 'since=2026-11-01' \
+  --data-urlencode 'limit=3' \
+  -H "X-RapidAPI-Key: ${RAPIDAPI_KEY}" \
+  -H 'X-RapidAPI-Host: vyonetix-developer-risk-signals.p.rapidapi.com' \
+  -H 'Accept: application/json'
 ```
 
-The Vyonetix-style sample is in [`kev-latest-sample.json`](kev-latest-sample.json). It is captured from the upstream catalog and is **not a live response from the Vyonetix API**. Check its `checked_at` and `source_metadata.source_updated_at` before reusing it.
+For payloads and complete examples, see [samples/quickstart.md](samples/quickstart.md).
 
-## What the API does
+## GitHub Actions integration
 
-The API provides one consistent JSON envelope and supports filters such as `since`, `cve_id`, `vendor`, and `product`, plus bounded pagination. It retains source provenance and timestamps. It does not decide whether a CVE affects a particular system, assess exploitability, or issue a security verdict.
+The early-access [CycloneDX Action](integrations/github-action/) sends up to 50 supported package/version tuples to the API and can optionally make a second request for exact OpenSSF checks. It writes aggregate counts to the job summary.
 
-The [RapidAPI listing is public](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals). Three REST routes are deployed and previously passed authenticated gateway checks. No key is included here. The public listing combines free and paid plans; RapidAPI classifies this as Freemium and requires a payment card even for the free tier. The sample remains a static upstream CISA snapshot, not a live Vyonetix response.
+- [Read the Action guide](integrations/github-action/README.md)
+- [Copy the example workflow](integrations/github-action/example-workflow.yml)
+- Pin the reviewed Action commit shown in the example; review updates before changing that pin.
+- The Action is an early-access source release, **not** a GitHub Marketplace listing.
+- Package names and versions are transmitted to RapidAPI and OSV. Do not use private package identifiers, confidential inventories, or sensitive SBOM metadata.
+- Findings are review evidence only. The Action does not determine exploitability and does not fail a job by default.
 
-## Try it from GitHub Actions
+## Free data example
 
-An early-access [CycloneDX GitHub Action](https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/tree/main/integrations/github-action) sends up to 50 supported package/version tuples to the public RapidAPI service and writes aggregate match counts to the job summary. It requires the caller's RapidAPI consumer key, makes one request by default (two when exact OpenSSF checks are enabled), and must not be used with confidential SBOM identifiers. The local parser/self-check passed; an independent consumer CI run has not been verified. Review the Action's privacy and limitation notes before use.
+[Download the timestamped JSON fixture](kev-latest-sample.json) or use the [sample page](https://sudheer-vyo.github.io/vyonetix-developer-risk-signals-demo/). It contains three reduced records from the public CISA KEV catalog. This is a static snapshot, **not a live Vyonetix API response**. Check its observation time before reuse.
 
-## Sources and rights
+CISA KEV catalog facts in the fixture are published under [CC0 1.0](https://www.cisa.gov/sites/default/files/licenses/kev/license.txt), with attribution to the [CISA KEV catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). No CISA/DHS marks are used, and no CISA endorsement is implied.
 
-- Upstream catalog: [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
-- Data licence: [CISA KEV CC0 1.0 licence](https://www.cisa.gov/sites/default/files/licenses/kev/license.txt)
-- Attribution: CISA Known Exploited Vulnerabilities Catalog; no CISA endorsement implied.
+## Data and limitations
 
-The reduced catalog fields in the sample are published under CC0 1.0. Do not use CISA or DHS seals/logos or imply endorsement.
+- KEV fields are reduced catalog facts. OSV and OpenSSF results are limited to identifiers, timestamps, exact-match status, and source links because upstream record rights vary.
+- Package coordinates are sent to RapidAPI and OSV for matching. Do not submit confidential dependency inventories.
+- A match means a source record matched the submitted coordinates. It does not establish that software is reachable, exploitable, malicious in a given environment, or safe.
+- The service is a controlled `workers.dev` pilot. No SLA or guaranteed response time is offered.
+- The API routes passed authenticated RapidAPI gateway checks on 12 November 2026. Independent customer signup, metering, and CI execution remain unverified.
 
-Follow product release notes on [Telegram](https://t.me/vyonetix_api_signals). Vyonetix Developer Risk Signals is a controlled pilot without an availability SLA.
+## Sources
+
+- [CISA KEV catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) · [CC0 1.0 licence](https://www.cisa.gov/sites/default/files/licenses/kev/license.txt)
+- [OSV database and source licences](https://google.github.io/osv.dev/data/)
+- [OpenSSF Malicious Packages](https://github.com/ossf/malicious-packages)
+
+## Support and updates
+
+Use [GitHub Issues](https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/issues) for reproducible documentation or integration problems. Check the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals) for current plan availability and service documentation.
+
+**VYONETIX SOLUTIONS** · Public data, source-linked results, bounded claims.

@@ -1,0 +1,56 @@
+{
+  "status": "success",
+  "service": "vyonetix-developer-risk-signals",
+  "version": "0.1.0",
+  "endpoint": "kev_catalog",
+  "request_id": "bd76cac8-0cbb-4352-8c59-a11e6b707dab",
+  "checked_at": "2026-11-12T02:12:42Z",
+  "source_metadata": {
+    "provenance": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "license": "CISA KEV catalog data is published under CC0 1.0; this sample contains reduced catalog facts.",
+    "license_url": "https://www.cisa.gov/sites/default/files/licenses/kev/license.txt",
+    "attribution": "CISA Known Exploited Vulnerabilities Catalog; no CISA endorsement implied.",
+    "rights_status": "cc0_1_0_catalog_data; attribution_retained; no_CISA_marks_or_external_record_links",
+    "source_updated_at": "2026-11-10T19:03:29.8375Z",
+    "source_version": "2026.11.10",
+    "observed_at": "2026-11-12T02:12:42Z",
+    "cache_max_age_seconds": 300,
+    "catalog_count": 1779,
+    "filtered_count": 1779,
+    "pagination": {
+      "limit": 3,
+      "offset": 0,
+      "has_more": true,
+      "next_offset": 3
+    }
+  },
+  "data": [
+    {
+      "cve_id": "CVE-2026-124194",
+      "vendor": "Microsoft",
+      "product": "Office",
+      "date_added": "2026-11-10",
+      "due_date": "2026-11-24",
+      "known_ransomware_campaign_use_status": "Unknown",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "cve_id": "CVE-2026-111793",
+      "vendor": "Openwave Messaging Limited",
+      "product": "Webtop Media Transcoder",
+      "date_added": "2026-11-10",
+      "due_date": "2026-11-24",
+      "known_ransomware_campaign_use_status": "Unknown",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "cve_id": "CVE-2026-20320",
+      "vendor": "Cisco",
+      "product": "BroadWorks",
+      "date_added": "2026-11-10",
+      "due_date": "2026-11-24",
+      "known_ransomware_campaign_use_status": "Unknown",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}

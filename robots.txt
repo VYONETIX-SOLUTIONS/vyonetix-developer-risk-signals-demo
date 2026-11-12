@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sudheer-vyo.github.io/vyonetix-developer-risk-signals-demo/sitemap.xml

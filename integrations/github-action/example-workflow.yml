@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: sudheer-vyo/vyonetix-developer-risk-signals-demo/integrations/github-action@main
+      - uses: sudheer-vyo/vyonetix-developer-risk-signals-demo/integrations/github-action@c84b27fc86c794710dd4ded38678b34d7f67cacd
         with:
           sbom-path: bom.json
           rapidapi-host: ${{ vars.VYONETIX_RAPIDAPI_HOST }}

@@ -4,7 +4,7 @@ This local composite Action submits up to 50 unique, versioned components from a
 
 ## Release state
 
-This is an early-access community integration published at [`integrations/github-action`](https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/tree/main/integrations/github-action). Its parser compiles and the local self-check passes. The three API routes passed authenticated RapidAPI gateway checks from the owner workspace; an independent consumer signup, metering check, and CI run have not been verified. This is a source release, not a GitHub Marketplace listing or a production security product.
+This is an early-access community integration published at [`integrations/github-action`](https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/tree/main/integrations/github-action) and tagged [`v0.1.0`](https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/releases/tag/v0.1.0). Its parser compiles and the local self-check passes. The three API routes passed authenticated RapidAPI gateway checks from the owner workspace; an independent consumer signup, metering check, and CI run have not been verified. This is a source release, not a GitHub Marketplace listing or a production security product.
 
 The public listing combines a 100-request Basic tier with paid tiers, so RapidAPI currently requires a payment card for Basic. Read the current plan, quota, privacy, and bandwidth terms on the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals) before subscribing. No consumer should assume a free subscription is card-free.
 
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: sudheer-vyo/vyonetix-developer-risk-signals-demo/integrations/github-action@main
+      - uses: sudheer-vyo/vyonetix-developer-risk-signals-demo/integrations/github-action@c84b27fc86c794710dd4ded38678b34d7f67cacd
         with:
           sbom-path: bom.json
           rapidapi-host: ${{ vars.VYONETIX_RAPIDAPI_HOST }}
@@ -50,6 +50,8 @@ jobs:
 ```
 
 GitHub's scheduled workflows run only from the default branch and may be delayed or dropped during high load. Use `workflow_dispatch` for an immediate manual run and a push trigger for changes to the SBOM. See [GitHub schedule event behavior](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows).
+
+The example pins the initial `v0.1.0` source commit by full SHA. Review future changes and update the pinned SHA deliberately rather than following a moving branch in a security workflow.
 
 The workflow sends supported package names and versions to RapidAPI and OSV. Do not use it with confidential inventories, private package identifiers, or data you are not authorized to disclose. Its output reports source-record matches, not exploitability or a safety verdict; keep `fail-on-findings` false until you have reviewed how your organization wants to handle results.
 

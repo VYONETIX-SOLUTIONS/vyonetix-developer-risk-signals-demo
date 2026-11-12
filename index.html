@@ -94,6 +94,15 @@
         <p class="note"><strong>Current access:</strong> the RapidAPI listing is public. Because its free plan is combined with paid tiers, RapidAPI requires a payment card even for Basic. This sample page does not provide API credentials. A no-match is not a security verdict, and the service does not assess reachability or exploitability.</p>
         <p style="margin-top:16px">Open the <a href="https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals">public API listing</a>. Follow product updates on <a href="https://t.me/vyonetix_api_signals">Telegram</a>. Source code and the JSON fixture are available on <a href="https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo">GitHub</a>.</p>
       </article>
+      <article class="card full">
+        <h2>Try it from GitHub Actions</h2>
+        <p>An early-access CycloneDX integration sends up to 50 supported package/version tuples to the API and writes aggregate match counts to the job summary. It uses a RapidAPI consumer key stored as a GitHub repository secret; it never includes the key in the workflow file.</p>
+        <ul>
+          <li>Read the <a href="https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/tree/main/integrations/github-action">GitHub Action guide and example workflow</a>.</li>
+          <li>Package names and versions are sent to RapidAPI and OSV. Do not use with confidential or private package inventories.</li>
+          <li>The integration's local parser check passed; an independent consumer CI run has not been verified.</li>
+        </ul>
+      </article>
     </section>
   </main>
   <footer><div class="wrap">Vyonetix Developer Risk Signals · Public-data sample · <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA source</a> · No CISA endorsement implied.</div></footer>

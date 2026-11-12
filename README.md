@@ -19,7 +19,11 @@ The Vyonetix-style sample is in [`kev-latest-sample.json`](kev-latest-sample.jso
 
 The API provides one consistent JSON envelope and supports filters such as `since`, `cve_id`, `vendor`, and `product`, plus bounded pagination. It retains source provenance and timestamps. It does not decide whether a CVE affects a particular system, assess exploitability, or issue a security verdict.
 
-The [RapidAPI listing is public](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals). The three REST routes are deployed and previously passed authenticated gateway checks. No key is included here. The listing currently combines free and paid plans; RapidAPI's Freemium model requires a payment card even for its free tier. A separate consumer's signup, quota enforcement, and checkout have not been verified. This repository contains only a public CISA snapshot, not a live Vyonetix API response.
+The [RapidAPI listing is public](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals). Three REST routes are deployed and previously passed authenticated gateway checks. No key is included here. The public listing combines free and paid plans; RapidAPI classifies this as Freemium and requires a payment card even for the free tier. The sample remains a static upstream CISA snapshot, not a live Vyonetix response.
+
+## Try it from GitHub Actions
+
+An early-access [CycloneDX GitHub Action](https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/tree/main/integrations/github-action) sends up to 50 supported package/version tuples to the public RapidAPI service and writes aggregate match counts to the job summary. It requires the caller's RapidAPI consumer key, makes one request by default (two when exact OpenSSF checks are enabled), and must not be used with confidential SBOM identifiers. The local parser/self-check passed; an independent consumer CI run has not been verified. Review the Action's privacy and limitation notes before use.
 
 ## Sources and rights
 

@@ -1,0 +1,25 @@
+name: Dependency evidence
+on:
+  push:
+    paths:
+      - "bom.json"
+      - "**/bom.json"
+  workflow_dispatch:
+  schedule:
+    - cron: "23 8 * * 1-5"
+
+permissions:
+  contents: read
+
+jobs:
+  risk-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: sudheer-vyo/vyonetix-developer-risk-signals-demo/integrations/github-action@main
+        with:
+          sbom-path: bom.json
+          rapidapi-host: ${{ vars.VYONETIX_RAPIDAPI_HOST }}
+          rapidapi-key: ${{ secrets.VYONETIX_RAPIDAPI_KEY }}
+          check-malicious: "true"
+          fail-on-findings: "false"

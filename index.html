@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A free, timestamped CISA KEV JSON sample showing source attribution, freshness metadata and a predictable developer-friendly response shape.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#101923">
+  <title>Developer Risk Signals — Free KEV JSON Sample | Vyonetix</title>
+  <style>
+    :root { color-scheme: dark; --bg:#101923; --panel:#172431; --line:#2d4050; --text:#eef5fa; --muted:#afc0cc; --accent:#65d6bf; --accent2:#91b8ff; --warn:#ffd789; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:radial-gradient(ellipse at 15% 0%,#1b3341 0,transparent 42%),var(--bg); color:var(--text); font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    a { color:var(--accent2); text-underline-offset:3px; }
+    a:hover { color:#c3d7ff; }
+    .wrap { width:min(1040px,calc(100% - 36px)); margin:0 auto; }
+    header { padding:24px 0; border-bottom:1px solid var(--line); }
+    .brand { color:var(--text); text-decoration:none; font-weight:750; letter-spacing:.03em; }
+    .brand span { color:var(--accent); }
+    main { padding:64px 0 72px; }
+    .eyebrow { color:var(--accent); font-size:.8rem; font-weight:750; letter-spacing:.13em; text-transform:uppercase; }
+    h1 { max-width:780px; margin:12px 0 18px; font-size:clamp(2.3rem,6vw,4.5rem); line-height:1.04; letter-spacing:-.045em; }
+    h2 { margin:0 0 12px; font-size:1.35rem; line-height:1.25; }
+    p { color:var(--muted); margin:0 0 16px; }
+    .lead { max-width:720px; font-size:1.18rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin:28px 0 24px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:10px 17px; border:1px solid var(--line); border-radius:9px; color:var(--text); text-decoration:none; font-weight:700; }
+    .button.primary { background:var(--accent); border-color:var(--accent); color:#09221e; }
+    .button:focus-visible,a:focus-visible { outline:3px solid var(--warn); outline-offset:3px; }
+    .status { display:inline-flex; align-items:center; gap:9px; padding:8px 12px; border:1px solid #796536; border-radius:999px; color:var(--warn); font-size:.9rem; }
+    .status::before { width:8px; height:8px; border-radius:50%; background:var(--warn); content:""; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:42px; }
+    .card { min-width:0; padding:24px; border:1px solid var(--line); border-radius:14px; background:color-mix(in srgb,var(--panel) 92%,transparent); }
+    .card.full { grid-column:1/-1; }
+    .meta { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:18px; }
+    .meta div { padding:12px; border:1px solid var(--line); border-radius:9px; }
+    .meta dt { color:var(--muted); font-size:.78rem; }
+    .meta dd { margin:4px 0 0; overflow-wrap:anywhere; font-weight:650; }
+    .records { display:grid; gap:10px; margin-top:18px; }
+    .record { padding:14px; border:1px solid var(--line); border-radius:9px; }
+    .record strong { color:var(--accent); }
+    .record span { display:block; color:var(--muted); font-size:.92rem; }
+    pre { margin:14px 0 0; padding:17px; overflow:auto; border:1px solid var(--line); border-radius:9px; background:#0b1219; color:#d9e7ef; font: .87rem/1.55 ui-monospace,SFMono-Regular,Consolas,monospace; }
+    code { color:#d9e7ef; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; overflow-wrap:anywhere; }
+    .note { padding:14px 16px; border-left:3px solid var(--warn); background:#27271f; color:#e8ddbd; }
+    ul { margin:12px 0 0; padding-left:20px; color:var(--muted); }
+    li+li { margin-top:6px; }
+    footer { padding:22px 0 36px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; }
+    @media(max-width:720px) { main{padding-top:42px}.grid{grid-template-columns:1fr}.card.full{grid-column:auto}.meta{grid-template-columns:1fr 1fr} }
+    @media(max-width:420px) { .meta{grid-template-columns:1fr}.button{width:100%} }
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><a class="brand" href="./">VYONETIX <span>DEVELOPER DATA</span></a></div></header>
+  <main class="wrap">
+    <div class="eyebrow">Free public-data example</div>
+    <h1>Turn the CISA KEV catalog into predictable JSON.</h1>
+    <p class="lead">Explore a small, time-stamped sample that keeps source version, observation time, attribution and pagination beside the reduced vulnerability records. Use it to evaluate a response contract for scripts, CI jobs and security workflows.</p>
+    <div class="actions">
+      <a class="button primary" href="kev-latest-sample.json" download>Download the JSON sample</a>
+      <a class="button" href="https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json">Open the live CISA source</a>
+      <a class="button" href="https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo">View the GitHub repository</a>
+    </div>
+    <div class="status" role="status">API subscriptions are not open yet</div>
+
+    <section class="grid" aria-label="Sample details">
+      <article class="card">
+        <h2>Sample provenance</h2>
+        <p>This is a snapshot of public source data, not a live response from the Vyonetix API.</p>
+        <dl class="meta" id="metadata"><div><dt>Loading sample metadata</dt><dd>…</dd></div></dl>
+        <p style="margin-top:15px">Source: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA Known Exploited Vulnerabilities Catalog</a>. Data licence: <a href="https://www.cisa.gov/sites/default/files/licenses/kev/license.txt">CC0 1.0</a>. No CISA endorsement is implied.</p>
+      </article>
+      <article class="card">
+        <h2>Included records</h2>
+        <p>Three reduced entries from the captured catalog sample.</p>
+        <div class="records" id="records" aria-live="polite"><p>Loading sample records…</p></div>
+      </article>
+      <article class="card full">
+        <h2>Try the source feed directly</h2>
+        <p>This read-only example uses the upstream public catalog, so you can test the data shape without an API key or Vyonetix account.</p>
+        <pre><code>curl -fsSL https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json \
+  | jq '{catalogVersion, dateReleased, count, vulnerabilities: [.vulnerabilities[:3][] | {cveID, vendorProject, product, dateAdded, dueDate, knownRansomwareCampaignUse}]}'</code></pre>
+      </article>
+      <article class="card full">
+        <h2>What the planned API adds</h2>
+        <p>Developer Risk Signals is designed to normalize source-linked evidence for a small set of security lookups: filtering KEV catalog records, checking caller-supplied package versions against OSV, and exact OpenSSF malicious-package report matches. The public sample demonstrates the KEV response shape only.</p>
+        <p class="note"><strong>Current access:</strong> the API project and paid tiers are configured privately, but the RapidAPI listing is not public. This page does not provide API credentials or imply that subscriptions are available. A no-match is not a security verdict, and the service does not assess reachability or exploitability.</p>
+        <p style="margin-top:16px">Follow verified availability updates on <a href="https://t.me/vyonetix_api_signals">Telegram</a>. Source code and the JSON fixture are available on <a href="https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo">GitHub</a>.</p>
+      </article>
+    </section>
+  </main>
+  <footer><div class="wrap">Vyonetix Developer Risk Signals · Public-data sample · <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA source</a> · No CISA endorsement implied.</div></footer>
+  <script>
+    (async function () {
+      const metadata = document.getElementById('metadata');
+      const records = document.getElementById('records');
+      const safe = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+      try {
+        const response = await fetch('./kev-latest-sample.json', {cache:'no-store'});
+        if (!response.ok) throw new Error('Sample unavailable');
+        const sample = await response.json();
+        const source = sample.source_metadata || {};
+        const values = [
+          ['Observed at', sample.checked_at],
+          ['Catalog version', source.source_version],
+          ['Source updated', source.source_updated_at],
+          ['Records in sample', Array.isArray(sample.data) ? sample.data.length : 0]
+        ];
+        metadata.innerHTML = values.map(([label,value]) => '<div><dt>' + safe(label) + '</dt><dd>' + safe(value) + '</dd></div>').join('');
+        records.innerHTML = (sample.data || []).map((item) => '<div class="record"><strong>' + safe(item.cve_id) + '</strong><span>' + safe(item.vendor) + ' · ' + safe(item.product) + '</span><span>Added ' + safe(item.date_added) + ' · Due ' + safe(item.due_date) + '</span></div>').join('') || '<p>No records in this sample.</p>';
+      } catch (_) {
+        metadata.innerHTML = '<div><dt>Sample metadata</dt><dd>Open the JSON download to inspect it.</dd></div>';
+        records.innerHTML = '<p>Sample records could not be loaded in this view. The JSON file remains available above.</p>';
+      }
+    }());
+  </script>
+</body>
+</html>

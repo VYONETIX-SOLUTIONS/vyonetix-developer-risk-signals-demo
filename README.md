@@ -2,7 +2,7 @@
 
 **Normalize three public software-risk sources into one developer-friendly API contract.** Filter CISA's Known Exploited Vulnerabilities (KEV) catalog, check caller-supplied package versions against OSV, and match exact OpenSSF malicious-package reports.
 
-[Open the RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals) · [View the free JSON sample](https://sudheer-vyo.github.io/vyonetix-developer-risk-signals-demo/) · [Try the GitHub Action](https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/tree/main/integrations/github-action)
+[Open the RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals) · [View the free JSON sample](https://vyonetix-solutions.github.io/vyonetix-developer-risk-signals-demo/) · [Try the GitHub Action](https://github.com/VYONETIX-SOLUTIONS/vyonetix-developer-risk-signals-demo/tree/main/integrations/github-action)
 
 > This is a controlled pilot without an availability SLA. The API returns source-linked evidence, not an exploitability or safety verdict. A no-match does not mean a dependency is safe.
 
@@ -20,7 +20,7 @@ One normalized response envelope keeps status, timestamps, source provenance, li
 
 Subscribe or choose a plan on the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals), copy your consumer key, and set it in your shell as `RAPIDAPI_KEY`. Keep the key in a secret manager or environment variable; never commit it.
 
-The listing currently shows a 100-request monthly Basic plan, a US$19/month Pro plan, and a US$39/month Ultra plan. Plan limits and card requirements can change; review the listing before subscribing. RapidAPI's current Freemium arrangement may require a payment card even for Basic.
+The listing is being moved to a Free-only, no-card pilot to reduce first-use friction. RapidAPI Free APIs do not provide plan quotas or collect payments. Paid tiers will return only after genuine external use is established; check the listing for the current state.
 
 ```sh
 curl --get 'https://vyonetix-developer-risk-signals.p.rapidapi.com/v1/security/kev' \
@@ -46,7 +46,7 @@ The early-access [CycloneDX Action](integrations/github-action/) sends up to 50 
 
 ## Free data example
 
-[Download the timestamped JSON fixture](kev-latest-sample.json) or use the [sample page](https://sudheer-vyo.github.io/vyonetix-developer-risk-signals-demo/). It contains three reduced records from the public CISA KEV catalog. This is a static snapshot, **not a live Vyonetix API response**. Check its observation time before reuse.
+[Download the timestamped JSON fixture](kev-latest-sample.json) or use the [sample page](https://vyonetix-solutions.github.io/vyonetix-developer-risk-signals-demo/). It contains three reduced records from the public CISA KEV catalog. This is a static snapshot, **not a live Vyonetix API response**. Check its observation time before reuse.
 
 CISA KEV catalog facts in the fixture are published under [CC0 1.0](https://www.cisa.gov/sites/default/files/licenses/kev/license.txt), with attribution to the [CISA KEV catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). No CISA/DHS marks are used, and no CISA endorsement is implied.
 
@@ -66,6 +66,6 @@ CISA KEV catalog facts in the fixture are published under [CC0 1.0](https://www.
 
 ## Support and updates
 
-Use [GitHub Issues](https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/issues) for reproducible documentation or integration problems. Check the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals) for current plan availability and service documentation.
+Use [GitHub Issues](https://github.com/VYONETIX-SOLUTIONS/vyonetix-developer-risk-signals-demo/issues) for reproducible documentation or integration problems. Check the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals) for current plan availability and service documentation.
 
 **VYONETIX-SOLUTIONS** · Public data, source-linked results, bounded claims.

@@ -2,7 +2,7 @@
 
 Use Vyonetix Developer Risk Signals from a GitHub Actions workflow that already produces a CycloneDX JSON SBOM.
 
-**[API listing and plans](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals)** · **[API examples](https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/blob/main/samples/quickstart.md)**
+**[API listing and plans](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals)** · **[API examples](https://github.com/VYONETIX-SOLUTIONS/vyonetix-developer-risk-signals-demo/blob/main/samples/quickstart.md)**
 
 This early-access integration sends up to 50 supported, versioned package coordinates to the API. It writes aggregate counts to the job summary. It is a source release, not a production security control or a GitHub Marketplace listing.
 
@@ -23,7 +23,7 @@ A match is evidence for human review. It does not say that a package is exploita
 5. Copy [example-workflow.yml](example-workflow.yml) and keep the reviewed commit pin.
 
 ```yaml
-- uses: sudheer-vyo/vyonetix-developer-risk-signals-demo/integrations/github-action@c84b27fc86c794710dd4ded38678b34d7f67cacd
+- uses: VYONETIX-SOLUTIONS/vyonetix-developer-risk-signals-demo/integrations/github-action@c84b27fc86c794710dd4ded38678b34d7f67cacd
   with:
     sbom-path: bom.json
     rapidapi-host: ${{ vars.VYONETIX_RAPIDAPI_HOST }}
@@ -45,3 +45,7 @@ A match is evidence for human review. It does not say that a package is exploita
 The three REST operations passed authenticated gateway checks on 12 November 2026. Local parser/self-checks passed. Independent customer signup, plan metering, and third-party CI use have not been verified. The service is a controlled pilot without an availability SLA.
 
 Current quotas, payment-card requirements, terms, and plan availability are shown on the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals).
+
+## Repository owner change
+
+The repository is now maintained by **VYONETIX-SOLUTIONS**. Update existing workflows that reference the former personal repository path: GitHub does not redirect `uses:` references for Actions when a repository is transferred or renamed. The reviewed commit pin remains the same.

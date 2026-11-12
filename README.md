@@ -1,5 +1,7 @@
 # Free CISA KEV Data Sample — Vyonetix Developer Risk Signals
 
+**Interactive sample page:** [Developer Risk Signals — Free KEV JSON Sample](https://sudheer-vyo.github.io/vyonetix-developer-risk-signals-demo/)
+
 This repository contains a small, time-stamped JSON sample derived from the public CISA Known Exploited Vulnerabilities (KEV) catalog. It shows the reduced response shape used by Vyonetix Developer Risk Signals: CVE, vendor, product, catalog dates, source attribution, and freshness metadata.
 
 ## Try the public source for free

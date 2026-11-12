@@ -20,7 +20,7 @@ One normalized response envelope keeps status, timestamps, source provenance, li
 
 Subscribe or choose a plan on the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals), copy your consumer key, and set it in your shell as `RAPIDAPI_KEY`. Keep the key in a secret manager or environment variable; never commit it.
 
-The listing is being moved to a Free-only, no-card pilot to reduce first-use friction. RapidAPI Free APIs do not provide plan quotas or collect payments. Paid tiers will return only after genuine external use is established; check the listing for the current state.
+The public listing currently offers a free BASIC plan with 1,000 requests per month. A legacy BASIC Deprecated card is also visible; paid plans are hidden while external use is validated. RapidAPI controls the signup flow, so check the live listing for its current requirements.
 
 ```sh
 curl --get 'https://vyonetix-developer-risk-signals.p.rapidapi.com/v1/security/kev' \

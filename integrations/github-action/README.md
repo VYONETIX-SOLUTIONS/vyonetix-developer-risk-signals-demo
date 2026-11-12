@@ -1,4 +1,4 @@
-# VYONETIX SOLUTIONS Dependency Evidence Action
+# VYONETIX-SOLUTIONS Dependency Evidence Action
 
 Use Vyonetix Developer Risk Signals from a GitHub Actions workflow that already produces a CycloneDX JSON SBOM.
 

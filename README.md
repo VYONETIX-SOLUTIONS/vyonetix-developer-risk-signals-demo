@@ -1,4 +1,4 @@
-# VYONETIX SOLUTIONS — Developer Risk Signals
+# VYONETIX-SOLUTIONS — Developer Risk Signals
 
 **Normalize three public software-risk sources into one developer-friendly API contract.** Filter CISA's Known Exploited Vulnerabilities (KEV) catalog, check caller-supplied package versions against OSV, and match exact OpenSSF malicious-package reports.
 
@@ -68,4 +68,4 @@ CISA KEV catalog facts in the fixture are published under [CC0 1.0](https://www.
 
 Use [GitHub Issues](https://github.com/sudheer-vyo/vyonetix-developer-risk-signals-demo/issues) for reproducible documentation or integration problems. Check the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals) for current plan availability and service documentation.
 
-**VYONETIX SOLUTIONS** · Public data, source-linked results, bounded claims.
+**VYONETIX-SOLUTIONS** · Public data, source-linked results, bounded claims.

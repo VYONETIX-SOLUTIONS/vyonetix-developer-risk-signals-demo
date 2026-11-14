@@ -69,3 +69,7 @@ CISA KEV catalog facts in the fixture are published under [CC0 1.0](https://www.
 Use [GitHub Issues](https://github.com/VYONETIX-SOLUTIONS/vyonetix-developer-risk-signals-demo/issues) for reproducible documentation or integration problems. Check the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals) for current plan availability and service documentation.
 
 **VYONETIX-SOLUTIONS** · Public data, source-linked results, bounded claims.
+
+## Related Vyonetix API
+
+For pre-deployment text-model workload estimates and source-attributed model rate lookup, see [Vyonetix AI Spend Guard on RapidAPI](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-ai-spend-guard), the [API examples and limitations](https://github.com/VYONETIX-SOLUTIONS/vyonetix-ai-spend-guard), and the [GitHub Actions budget-gate technical preview](https://github.com/VYONETIX-SOLUTIONS/vyonetix-ai-spend-guard-action). The estimate endpoint is an early-access pilot; verify consumer requests before relying on it.

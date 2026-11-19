@@ -1,51 +1,17 @@
-# VYONETIX-SOLUTIONS Dependency Evidence Action
+# Vyonetix Dependency Evidence Check — early access
 
-Use Vyonetix Developer Risk Signals from a GitHub Actions workflow that already produces a CycloneDX JSON SBOM.
+The company-owned action is a small CI entry point for the Vyonetix Developer Risk Signals API. It accepts a caller-generated CycloneDX JSON SBOM, extracts supported public ecosystem/name/version tuples, and requests advisory identifiers from OSV through the API. An optional second call checks exact OpenSSF `MAL-` report identifiers. It does not upload the full SBOM file.
 
-**[API listing and plans](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals)** · **[API examples](https://github.com/VYONETIX-SOLUTIONS/vyonetix-developer-risk-signals-demo/blob/main/samples/quickstart.md)**
+The current RapidAPI product has four REST routes. This Action uses the two package-coordinate operations only; it does not call the CISA KEV catalog or the FIRST EPSS + KEV prioritization operation. The new CVE route can be called from a custom workflow using the [API quickstart](../../quickstart.md).
 
-This early-access integration sends up to 50 supported, versioned package coordinates to the API. It writes aggregate counts to the job summary. It is a source release, not a production security control or a GitHub Marketplace listing.
+## Install and configure
 
-## What it checks
+Use the commit-pinned action reference in [`example-workflow.yml`](example-workflow.yml). Add a consumer-owned RapidAPI key to the repository as a secret named `RAPIDAPI_KEY`; do not hard-code it. The consumer must subscribe to a current plan in the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals).
 
-- OSV advisory identifiers for caller-supplied package versions.
-- Optional exact OpenSSF `MAL-YYYY-NNNN` report matches.
-- Aggregate match counts, without printing package names, API keys, or full upstream responses.
+Before use, read [`action.yml`](action.yml) and the example workflow. Package coordinates are sent to RapidAPI and OSV for matching. Do not use this integration with private package inventories, confidential SBOM metadata, customer secrets, or other sensitive names.
 
-A match is evidence for human review. It does not say that a package is exploitable, malicious in your environment, or unsafe. A no-match is not a safety verdict.
+## Evidence and limits
 
-## Quick setup
+The Action writes aggregate counts to the workflow summary. A matched source advisory or OpenSSF report is evidence for a human or caller-owned policy to review. A no-match is not a safety verdict. The API does not inspect source code, determine deployment exposure, or remediate a dependency.
 
-1. Generate a CycloneDX JSON SBOM in your workflow.
-2. Copy the API hostname shown on the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals).
-3. Add the host as a repository variable called `VYONETIX_RAPIDAPI_HOST`.
-4. Subscribe to an available RapidAPI plan and save your consumer key as repository secret `VYONETIX_RAPIDAPI_KEY`.
-5. Copy [example-workflow.yml](example-workflow.yml) and keep the reviewed commit pin.
-
-```yaml
-- uses: VYONETIX-SOLUTIONS/vyonetix-developer-risk-signals-demo/integrations/github-action@c84b27fc86c794710dd4ded38678b34d7f67cacd
-  with:
-    sbom-path: bom.json
-    rapidapi-host: ${{ vars.VYONETIX_RAPIDAPI_HOST }}
-    rapidapi-key: ${{ secrets.VYONETIX_RAPIDAPI_KEY }}
-    check-malicious: "true"
-    fail-on-findings: "false"
-```
-
-## Data handling and privacy
-
-- Only supported ecosystem, package name, and version tuples are sent; the Action does not upload the complete SBOM file.
-- Package coordinates are transmitted to RapidAPI and OSV. Do not use the Action with confidential inventories or private package identifiers.
-- The default run makes one API call. Enabling `check-malicious` makes a second call. Quotas and GitHub schedule timing apply; scheduled workflows are not real-time guarantees.
-- `fail-on-findings` defaults to false. Review the returned source evidence before deciding how to handle a match.
-- Keep the RapidAPI key in GitHub Actions Secrets. Never put it in workflow YAML, logs, or artifacts.
-
-## Availability and verification
-
-The three REST operations passed authenticated gateway checks on 12 November 2026. Local parser/self-checks passed. Independent customer signup, plan metering, and third-party CI use have not been verified. The service is a controlled pilot without an availability SLA.
-
-Current quotas, payment-card requirements, terms, and plan availability are shown on the [RapidAPI listing](https://rapidapi.com/vyonetix-solutions-vyonetix-solutions-default/api/vyonetix-developer-risk-signals).
-
-## Repository owner change
-
-The repository is now maintained by **VYONETIX-SOLUTIONS**. Update existing workflows that reference the former personal repository path: GitHub does not redirect `uses:` references for Actions when a repository is transferred or renamed. The reviewed commit pin remains the same.
+This is an early-access integration. The Cloudflare `workers.dev` origin has no availability SLA.

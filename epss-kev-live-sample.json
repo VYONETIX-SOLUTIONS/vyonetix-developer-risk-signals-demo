@@ -1,0 +1,60 @@
+{
+  "status": "success",
+  "service": "vyonetix-developer-risk-signals",
+  "version": "0.2.0",
+  "endpoint": "cve_signal_enrichment",
+  "request_id": "7d1993e2-9968-4954-8d93-ee969758902f",
+  "checked_at": "2026-11-19T08:22:31.58Z",
+  "source_metadata": {
+    "provenance": [
+      "https://api.first.org/data/v1/epss",
+      "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+    ],
+    "license": "FIRST EPSS content is distributed here solely for preventative cybersecurity use under FIRST Services Terms of Use. CISA KEV catalog facts are CC0 1.0.",
+    "attribution": "EPSS by FIRST.org; CISA Known Exploited Vulnerabilities Catalog. No CISA, FIRST, or vendor endorsement implied.",
+    "rights_status": "FIRST preventative_cybersecurity_use_only; CISA_reduced_catalog_facts_CC0_1_0; attribution_retained",
+    "epss_source_date": "2026-11-18",
+    "epss_observed_at": "2026-11-19T08:22:31.58Z",
+    "cisa_source_updated_at": "2026-11-18T19:17:41.0354Z",
+    "cisa_source_version": "2026.11.18",
+    "cisa_observed_at": "2026-11-19T08:22:31.58Z",
+    "submitted_count": 3,
+    "epss_records_returned": 3,
+    "cisa_kev_matches": 3,
+    "ordering": "CISA KEV membership first, then descending FIRST EPSS probability, then CVE identifier; deterministic source-signal ordering only",
+    "interpretation": "FIRST EPSS is a daily estimate of the probability of observed exploitation activity in the next 30 days. It is not impact, asset exposure, exploit confirmation, or a complete risk score. KEV and EPSS do not determine whether a specific system is affected.",
+    "retention": "CVE identifiers are processed in memory and are not intentionally persisted or logged by this Worker. FIRST receives the submitted CVE identifiers."
+  },
+  "data": [
+    {
+      "cve_id": "CVE-2021-44228",
+      "cisa_kev_listed": true,
+      "cisa_kev_date_added": "2021-12-10",
+      "epss_probability_30d": 0.99999,
+      "epss_percentile": 1,
+      "epss_score_date": "2026-11-18",
+      "epss_status": "available",
+      "source_signal_order": 1
+    },
+    {
+      "cve_id": "CVE-2021-45046",
+      "cisa_kev_listed": true,
+      "cisa_kev_date_added": "2023-05-01",
+      "epss_probability_30d": 0.99977,
+      "epss_percentile": 0.9998,
+      "epss_score_date": "2026-11-18",
+      "epss_status": "available",
+      "source_signal_order": 2
+    },
+    {
+      "cve_id": "CVE-2023-34362",
+      "cisa_kev_listed": true,
+      "cisa_kev_date_added": "2023-06-02",
+      "epss_probability_30d": 0.99934,
+      "epss_percentile": 0.99971,
+      "epss_score_date": "2026-11-18",
+      "epss_status": "available",
+      "source_signal_order": 3
+    }
+  ]
+}
